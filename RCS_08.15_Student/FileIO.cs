@@ -12,10 +12,6 @@ namespace RCS_08._15_Student
         public static void SaveToFile(List<Student> stud)
         {
             string jsonString;
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-            };
 
             jsonString = JsonConvert.SerializeObject(stud, Formatting.Indented);
             File.WriteAllText(GetGameFile(), jsonString);
