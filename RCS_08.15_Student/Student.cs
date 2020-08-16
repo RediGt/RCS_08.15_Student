@@ -10,8 +10,7 @@ namespace RCS_08._15_Student
         public String lastName;
         public int age;
 
-        public static List<Student> students { get; set; } = new List<Student>();
-
+ 
         public Student(String name, String lastName, int age)
         {
             this.name = name;
@@ -21,9 +20,7 @@ namespace RCS_08._15_Student
 
         public void PrintInfo()
         {
-            Console.WriteLine(name);
-            Console.WriteLine(lastName);
-            Console.WriteLine(age);
+            Console.WriteLine(name + "  " + lastName + "  " + age);
         }
     }
 }

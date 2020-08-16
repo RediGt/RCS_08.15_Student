@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -8,15 +9,15 @@ namespace RCS_08._15_Student
 {
     class FileIO
     {
-        public static void SaveToFile(List<Student> st)
+        public static void SaveToFile(List<Student> stud)
         {
             string jsonString;
             var options = new JsonSerializerOptions
             {
                 WriteIndented = true,
             };
-            jsonString = System.Text.Json.JsonSerializer.Serialize(st, options);
 
+            jsonString = JsonConvert.SerializeObject(stud, Formatting.Indented);
             File.WriteAllText(GetGameFile(), jsonString);
         }
 
@@ -35,7 +36,7 @@ namespace RCS_08._15_Student
                 }
                 reader.Close();
 
-                return System.Text.Json.JsonSerializer.Deserialize<List<Student>>(json);
+                return JsonConvert.DeserializeObject<List<Student>>(json);
             }
             catch
             {

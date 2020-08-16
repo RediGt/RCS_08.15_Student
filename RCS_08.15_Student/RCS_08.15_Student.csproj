@@ -6,4 +6,8 @@
     <RootNamespace>RCS_08._15_Student</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
 </Project>

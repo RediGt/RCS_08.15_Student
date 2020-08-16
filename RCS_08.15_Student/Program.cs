@@ -7,33 +7,33 @@ namespace RCS_08._15_Student
     {
         static void Main(string[] args)
         {           
-            List<Student> students = new List<Student>();
+            List<Student> studentsA = new List<Student>();
 
             Student st1 = new Student("Ivans", "Ivanovs", 21);
             Student st2 = new Student("Janis", "Jansons", 23);
             Student st3 = new Student("Ieva", "Ievina", 20);
             Student st4 = new Student("Peteris", "Petrovs", 31);
             Student st5 = new Student("Egors", "Egorovs", 31);
-            students.Add(st1);
-            students.Add(st2);
-            students.Add(st3);
-            students.Add(st4);
-            students.Add(st5);
+            studentsA.Add(st1);
+            studentsA.Add(st2);
+            studentsA.Add(st3);
+            studentsA.Add(st4);
+            studentsA.Add(st5);
 
-            PrintStud(students);
-            FileIO.SaveToFile(students);
+            Console.WriteLine("Created list of students:");
+            PrintStud(studentsA);
+            FileIO.SaveToFile(studentsA);
 
-            List<Student> studentsNew = FileIO.LoadFromFile();
-            PrintStud(studentsNew);
+            Console.WriteLine("\nLoaded list of students:");
+            List<Student> studentsB = FileIO.LoadFromFile();
+            PrintStud(studentsB);
+            Console.WriteLine();
         }
 
-        private static void PrintStud(List<Student> st)
+        private static void PrintStud(List<Student> list)
         {
-            for(int i = 0; i < st.Count; i++)
-            {
-                Console.WriteLine(st[i].lastName + "  " + st[i].name + "  " + st[i].age);
-            }
-                
+            foreach (var student in list)
+                student.PrintInfo();              
         }
     }
 }
